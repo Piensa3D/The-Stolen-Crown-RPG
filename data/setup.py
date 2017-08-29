@@ -12,7 +12,7 @@ from . import constants as c
 
 GAME = 'BEGIN GAME'
 
-ORIGINAL_CAPTION = 'The Stolen Crown'
+ORIGINAL_CAPTION = 'La Corona Robada'
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 pg.init()
@@ -28,6 +28,3 @@ SFX = tools.load_all_sfx(os.path.join('resources', 'sound'))
 TMX = tools.load_all_tmx(os.path.join('resources', 'tmx'))
 
 FONT = pg.font.Font(FONTS['Fixedsys500c'], 20)
-
-
-

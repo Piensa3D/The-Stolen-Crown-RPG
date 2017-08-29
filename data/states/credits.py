@@ -25,32 +25,32 @@ class CreditEntry(object):
         """
         credits = [['THE STOLEN CROWN', 'A Fantasy RPG'],
                    ['PROGRAMMING AND GAME DESIGN', 'Justin Armstrong'],
-                   ['ART', 'JPhilipp', 
-                           'Reemax', 
-                           'Lanea Zimmerman', 
+                   ['ART', 'JPhilipp',
+                           'Reemax',
+                           'Lanea Zimmerman',
                            'Redshrike', 
-                           'StumpyStrust', 
-                           'Benjamin Larsson', 
-                           'russpuppy', 
+                           'StumpyStrust',
+                           'Benjamin Larsson',
+                           'russpuppy',
                            'hc',
                            'Iron Star Media'],
-                   ['MUSIC', 'Telaron: The King\'s Theme', 
-                             'Mekathratos: Forest Dance (Town Theme)', 
-                             'bart: Adventure Begins (Overworld Theme)', 
-                             '8th Mode Music: High Action (Battle Theme)', 
-                             'Arron Krogh: Coastal Town (Shop Theme)', 
-                             'Arron Krogh: My Enemy (Dungeon Theme)', 
-                             'Matthew Pablo: Enchanted Festival (Victory Theme)', 
+                   ['MUSIC', 'Telaron: The King\'s Theme',
+                             'Mekathratos: Forest Dance (Town Theme)',
+                             'bart: Adventure Begins (Overworld Theme)',
+                             '8th Mode Music: High Action (Battle Theme)',
+                             'Arron Krogh: Coastal Town (Shop Theme)',
+                             'Arron Krogh: My Enemy (Dungeon Theme)',
+                             'Matthew Pablo: Enchanted Festival (Victory Theme)',
                              'Matthew Pablo: Pleasant Creek (Brother Theme)'],
                    ['SOUND EFFECTS', 'Kenney',
                                      'Nic3_one',
                                      'Ekokubza123',
                                      'kuzyaburst',
                                      'audione'],
-                   ['SPECIAL THANKS', '/r/pygame', 
-                                      'Leif Theden', 
+                   ['SPECIAL THANKS', '/r/pygame',
+                                      'Leif Theden',
                                       'Stacey Hunniford']]
-        
+
         credit_sprites = []
 
         for credit in credits:
@@ -65,14 +65,14 @@ class CreditEntry(object):
                 text_sprite.image.set_alpha(self.alpha)
                 subcredit_list.append(text_sprite)
             credit_sprites.append(subcredit_list)
-        
+
         return credit_sprites
 
     def make_state_dict(self):
         """
         Make the dictionary of state methods used to update credit.
         """
-        state_dict = {c.TRANSITION_IN: self.transition_in, 
+        state_dict = {c.TRANSITION_IN: self.transition_in,
                       c.TRANSITION_OUT: self.transition_out,
                       c.NORMAL: self.normal_update}
 
@@ -97,7 +97,7 @@ class CreditEntry(object):
             credit.image.set_colorkey(c.BLACK)
             credit.image.set_alpha(self.alpha)
             credit.image.blit(credit.text_image, (0, 0))
-           
+
         self.alpha -= 5
         if self.alpha <= 0:
             self.alpha = 0
@@ -138,10 +138,10 @@ class Credits(tools._State):
         self.music = None
         self.volume = None
         self.credit = None
-    
+
     def startup(self, current_time, game_data):
         """
-        Initialize data at scene start. 
+        Initialize data at scene start.
         """
         self.game_data = game_data
         self.music = setup.MUSIC['overworld']
@@ -164,6 +164,3 @@ class Credits(tools._State):
         """
         surface.blit(self.background, (0, 0))
         self.credit.draw(surface)
-        
-    
-
